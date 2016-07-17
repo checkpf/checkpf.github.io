@@ -46,7 +46,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
                     localStorage.setItem("user",JSON.stringify($scope.user));
                 }
                 catch(e){}
-                $http.get("checkpf/"+$scope.user.UAN+"/"+$scope.user.mobile,{data:"",params:{}}).then(function(res){
+                $http.get("http://54.149.35.181:8424/checkpf/"+$scope.user.UAN+"/"+$scope.user.mobile,{data:"",params:{}}).then(function(res){
                     console.log(res);
                     if(res.data == "")
                     {
