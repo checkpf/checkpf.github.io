@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Angular Material style sheet -->
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		<meta name="theme-color" content="#8343bd" />
+		<title>Check PF</title>
+	</head>
+	<body ng-app="checkpf">
+		<div class="check-pf-wrapper parallax-purple" ng-class="state.colorClass" ng-controller="mainController">
+			<div class="error-wrapper" ng-if="state.view=='error'">
+				<div class="error-header">
+					!!ERROR
+				</div>
+				<div class="error-text">
+					
+					unable to retrieve data<br/>
+					Try again after few minutes
+				</div>
+				<div>
+					<md-button class="md-raised" ng-click="checkPf()">
+						<md-icon md-font-icon="material-icons" >replay</md-icon>  Try again
+					</md-button> 
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			<div class="home-wrapper " ng-show="state.view =='main'">
+				<div class="check-pf-title">
+					Check PF
+				</div>
+				<div class="check-pf-subheading">
+					unofficial
+				</div>
+				<div class="user-inputs">
+					 <form name="userForm">
+						<md-input-container class="md-block">
+							<label>UAN number</label>
+							<input name="UAN" type="text" ng-model="user.UAN" required ng-pattern="/^[0-9]{12}$/" maxlength="12">
+							<div ng-messages="userForm.UAN.$error" role="alert" multiple>
+							<div ng-message="required" class="input-error">You must supply a UAN number.</div>
+							<div ng-message="pattern" class="input-error">	Hold on it doen't looks like a UAN number.
+							</div>
+							
+							</div>
+						</md-input-container>
+
+						<md-input-container class="md-block">
+							<label>Mobile number</label>
+							<input name="mobile" type="text" ng-model="user.mobile" required ng-pattern="/^[0-9]{10}$/" maxlength="10">
+							<div ng-messages="userForm.mobile.$error" role="alert" multiple>
+							<div ng-message="required" class="input-error">You must supply a mobile number.</div>
+							<div ng-message="pattern" class="input-error">Hold on it doen't looks like a mobile number.
+							</div>
+							
+							</div>
+						</md-input-container>
+						<md-button class="md-raised" ng-click="checkPf()">
+							<md-icon md-font-icon="material-icons" >done</md-icon>  Check my PF </md-button> 
+
+					 </form>
+				</div>
+			</div>
+			<div class="detail-wrapper" ng-if="state.view =='detail'">
+				
+				<div>
+					<div > <md-icon md-font-icon="material-icons" >local_library</md-icon> UAN</div>
+					<div class="detail-value"> {{pfDetails.UAN}}</div>
+				</div>
+				<div>
+					<div> <md-icon md-font-icon="material-icons" >phone</md-icon> Mobile</div>
+					<div  class="detail-value"> {{pfDetails.mobile}}</div>
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >account_circle</md-icon> Name 
+					</div><div  class="detail-value">{{pfDetails.name}}</div>
+				</div>
+				<div>
+					<div><md-icon md-font-icon="material-icons" >assignment_ind</md-icon> Member Id</div>
+					<div  class="detail-value"> {{pfDetails.mId}}</div>
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >date_range</md-icon> DOB
+					</div>
+					<div  class="detail-value">
+						 {{pfDetails.dob}}
+					</div>
+					
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >card_membership</md-icon> PAN
+					</div>
+					<div  class="detail-value">
+						 {{pfDetails.pan}}
+					</div>
+					
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >chrome_reader_mode</md-icon>  Aadhar 
+					</div>
+					<div  class="detail-value">
+						{{pfDetails.aadhar}}
+					</div>
+					
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >account_balance</md-icon> Bank
+					</div>
+					<div  class="detail-value">
+						 {{pfDetails.bank}}
+					</div>
+					
+				</div>
+				<div>
+					<div><md-icon md-font-icon="material-icons" >account_balance_wallet</md-icon> Balance </div>
+					<div  class="detail-value">
+						{{pfDetails.balance}}
+					</div>
+					
+				</div>
+				<div>
+					<div><md-icon md-font-icon="material-icons" >credit_card</md-icon> Last credit </div>
+					<div  class="detail-value">{{pfDetails.lastCredit}}</div>
+					
+				</div>
+				<div>
+					<div>
+						<md-icon md-font-icon="material-icons" >assignment_turned_in</md-icon> Status
+					</div>
+					<div  class="detail-value">
+					 {{pfDetails.status}}
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	 <!-- Angular Material requires Angular.js Libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+	<script src="script.js"></script>
+	</body>
+</html>
