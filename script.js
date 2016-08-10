@@ -1,5 +1,6 @@
 angular.module("checkpf",['ngMaterial','ngMessages'])
 .controller("mainController",['$scope','$http',function($scope,$http){
+    $scope.pageLoading = false;
     $scope.state = {colorClass:"",view:"main"};
     $scope.user = {
         UAN:"",
