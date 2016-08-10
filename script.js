@@ -38,7 +38,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
         });
         
     });
-    
+    $scope.promoteToInstall();
     $scope.changeView = function(view)
     {
         switch(view)
