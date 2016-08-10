@@ -15,8 +15,30 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
         }
             
     }catch(e){}
-
-
+    $scope.installed = false;
+    $scope.promoteToInstall = function()
+    {
+        $scope.installed = localStorage.getItem("home_screen");
+        if(!$scope.installed)
+        {
+            navigator.showInstallPrompt();
+        }
+    }
+    window.addEventListener('beforeinstallprompt',function(e){
+        
+        if($scope.installed)e.preventDefault();
+        
+        
+    });
+    window.addEventListener('addedToHomeScreen',function(e){
+        
+        localStorage.setItem("home_screen",true);
+        $scope.$appy(function(){
+            $scope.installed = true;
+        });
+        
+    });
+    
     $scope.changeView = function(view)
     {
         switch(view)
