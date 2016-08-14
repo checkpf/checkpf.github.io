@@ -21,7 +21,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
         $scope.installed = localStorage.getItem("home_screen");
         if(!$scope.installed)
         {
-            navigator.showInstallPrompt();
+            //navigator.showInstallPrompt();
         }
     }
     window.addEventListener('beforeinstallprompt',function(e){
