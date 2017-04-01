@@ -1,7 +1,7 @@
 
 importScripts('serviceworker-cache-polyfill.js');
 
-var CACHE_NAME = 'my-site-cache-v4';
+var CACHE_NAME = 'my-site-cache-v5';
 var urlsToCache = [
   '/angular.min.js',
   '/angular-aria.min.js',
@@ -27,7 +27,7 @@ self.addEventListener('install', function(event) {
         return cache.addAll(urlsToCache);
       })
   );
-  var cacheWhitelist = ['my-site-cache-v4'];
+  var cacheWhitelist = ['my-site-cache-v5'];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
