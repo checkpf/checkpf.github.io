@@ -1,6 +1,7 @@
 angular.module("checkpf",['ngMaterial','ngMessages'])
 .controller("mainController",['$scope','$http',function($scope,$http){
     $scope.pageLoading = false;
+    $scope.showServerProcessing = false;
     $scope.state = {colorClass:"",view:"main"};
     $scope.user = {
         UAN:"",
@@ -69,8 +70,10 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
                     localStorage.setItem("user",JSON.stringify($scope.user));
                 }
                 catch(e){}
-                $http.get("https://wowcoupon.in/pricetracker/app/CheckPF",{data:"",params:{uan:$scope.user.UAN,mobile:$scope.user.mobile}}).then(function(res){
+                $scope.showServerProcessing = true;
+                $http.get("https://test2.offerify.in/checkpf/"+$scope.user.UAN+"/$scope.user.mobile"+,{data:"",params:{}}).then(function(res){
                     console.log(res);
+                    $scope.showServerProcessing = false;
                     if(res.data == "")
                     {
                         $scope.changeView("error");
@@ -98,6 +101,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
                 },function(res){
                     console.log(res);
                     $scope.changeView("error");
+                    $scope.showServerProcessing = false;
                 })
 
 
