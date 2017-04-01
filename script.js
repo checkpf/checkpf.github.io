@@ -71,7 +71,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
                 }
                 catch(e){}
                 $scope.showServerProcessing = true;
-                $http.get("https://test2.offerify.in/checkpf/"+$scope.user.UAN+"/$scope.user.mobile"+,{data:"",params:{}}).then(function(res){
+                $http.get("https://test2.offerify.in/checkpf/"+$scope.user.UAN+"/$scope.user.mobile",{data:"",params:{}}).then(function(res){
                     console.log(res);
                     $scope.showServerProcessing = false;
                     if(res.data == "")
