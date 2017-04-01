@@ -1,7 +1,7 @@
 
 importScripts('serviceworker-cache-polyfill.js');
 
-var CACHE_NAME = 'my-site-cache-v3';
+var CACHE_NAME = 'my-site-cache-v4';
 var urlsToCache = [
   '/angular.min.js',
   '/angular-aria.min.js',
