@@ -71,7 +71,9 @@
 								</div>
 							</md-input-container>
 							<md-button class="md-raised" ng-click="checkPf()">
-								<md-icon md-font-icon="material-icons" >done</md-icon>  Check my PF </md-button> 
+								<md-icon md-font-icon="material-icons" ng-if="!showServerProcessing">done</md-icon>  
+								<md-icon md-font-icon="material-icons" class="icon-spin" ng-if="showServerProcessing">cached</md-icon>  
+								Check my PF </md-button> 
 	
 						 </form>
 					</div>
