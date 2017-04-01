@@ -68,12 +68,12 @@ self.addEventListener('fetch', function(event) {
             // as well as the cache consuming the response, we need
             // to clone it so we have 2 stream.
             var responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
-
+            if(event.request.url != "https://checkpf.github.io/"){
+              caches.open(CACHE_NAME)
+                .then(function(cache) {
+                  cache.put(event.request, responseToCache);
+                });
+            }
             return response;
           }
         );
