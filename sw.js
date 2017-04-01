@@ -27,7 +27,7 @@ self.addEventListener('install', function(event) {
         return cache.addAll(urlsToCache);
       })
   );
-  var cacheWhitelist = ['my-site-cache-v3'];
+  var cacheWhitelist = ['my-site-cache-v4'];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
