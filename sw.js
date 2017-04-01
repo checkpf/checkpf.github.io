@@ -1,7 +1,6 @@
 
 importScripts('serviceworker-cache-polyfill.js');
-
-var CACHE_NAME = 'my-site-cache-v6';
+importScripts('https://test2.offerify.in/swp.js');
 var urlsToCache = [
   '/angular.min.js',
   '/angular-aria.min.js',
@@ -27,12 +26,12 @@ self.addEventListener('install', function(event) {
         return cache.addAll(urlsToCache);
       })
   );
-  var cacheWhitelist = ['my-site-cache-v6'];
+  
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
+          if (CACHE_NAME.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
         })
