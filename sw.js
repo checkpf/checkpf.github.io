@@ -1,6 +1,6 @@
 
 importScripts('serviceworker-cache-polyfill.js');
-importScripts('https://test2.offerify.in/swp.js');
+var CACHE_NAME = 'my-site-cache-v6';
 var urlsToCache = [
   '/angular.min.js',
   '/angular-aria.min.js',
