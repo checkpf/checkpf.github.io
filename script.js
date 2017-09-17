@@ -80,21 +80,7 @@ angular.module("checkpf",['ngMaterial','ngMessages'])
                     }
                     else
                     {
-                        $scope.pfDetails ={
-                            UAN: $scope.user.UAN,
-                            mobile:$scope.user.mobile,
-                            mId:res.data[1],
-                            name:res.data[3],
-                            dob:res.data[4],
-                            aadhar:res.data[5],
-                            bank:res.data[6],
-                            pan:res.data[7],
-                            lastCredit:res.data[8],
-                            balance:res.data[9],
-                            status:res.data[10],
-                            passbook:res.data[11],
-                            year:res.data[13]
-                        }
+                        $scope.pfDetails =res.data;
                          $scope.changeView("detail");
                     }
 
