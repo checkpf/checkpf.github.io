@@ -81,78 +81,79 @@
 					</div>
 				</div>
 				<div class="detail-wrapper" ng-if="state.view =='detail'">
-					
-					<div>
-						<div > <md-icon md-font-icon="material-icons" >local_library</md-icon> UAN</div>
-						<div class="detail-value"> {{pfDetails.UAN}}</div>
-					</div>
-					<div>
-						<div> <md-icon md-font-icon="material-icons" >phone</md-icon> Mobile</div>
-						<div  class="detail-value"> {{pfDetails.mobile}}</div>
-					</div>
-					<div>
+					<div ng-repeat="pf in pfDetails">
 						<div>
-							<md-icon md-font-icon="material-icons" >account_circle</md-icon> Name 
-						</div><div  class="detail-value">{{pfDetails.name}}</div>
-					</div>
-					<div>
-						<div><md-icon md-font-icon="material-icons" >assignment_ind</md-icon> Member Id</div>
-						<div  class="detail-value"> {{pfDetails.mId}}</div>
-					</div>
-					<div>
+							<div > <md-icon md-font-icon="material-icons" >local_library</md-icon> UAN</div>
+							<div class="detail-value"> {{pf.UAN}}</div>
+						</div>
 						<div>
-							<md-icon md-font-icon="material-icons" >date_range</md-icon> DOB
+							<div> <md-icon md-font-icon="material-icons" >phone</md-icon> Mobile</div>
+							<div  class="detail-value"> {{pf.mobile}}</div>
 						</div>
-						<div  class="detail-value">
-							 {{pfDetails.dob}}
-						</div>
-						
-					</div>
-					<div>
 						<div>
-							<md-icon md-font-icon="material-icons" >card_membership</md-icon> PAN
+							<div>
+								<md-icon md-font-icon="material-icons" >account_circle</md-icon> Name 
+							</div><div  class="detail-value">{{pf.name}}</div>
 						</div>
-						<div  class="detail-value">
-							 {{pfDetails.pan}}
-						</div>
-						
-					</div>
-					<div>
 						<div>
-							<md-icon md-font-icon="material-icons" >chrome_reader_mode</md-icon>  Aadhar 
+							<div><md-icon md-font-icon="material-icons" >assignment_ind</md-icon> Member Id</div>
+							<div  class="detail-value"> {{pf.mId}}</div>
 						</div>
-						<div  class="detail-value">
-							{{pfDetails.aadhar}}
-						</div>
-						
-					</div>
-					<div>
 						<div>
-							<md-icon md-font-icon="material-icons" >account_balance</md-icon> Bank
+							<div>
+								<md-icon md-font-icon="material-icons" >date_range</md-icon> DOB
+							</div>
+							<div  class="detail-value">
+								 {{pf.dob}}
+							</div>
+
 						</div>
-						<div  class="detail-value">
-							 {{pfDetails.bank}}
-						</div>
-						
-					</div>
-					<div>
-						<div><md-icon md-font-icon="material-icons" >account_balance_wallet</md-icon> Balance </div>
-						<div  class="detail-value">
-							{{pfDetails.balance}}
-						</div>
-						
-					</div>
-					<div>
-						<div><md-icon md-font-icon="material-icons" >credit_card</md-icon> Last credit </div>
-						<div  class="detail-value">{{pfDetails.lastCredit}}</div>
-						
-					</div>
-					<div>
 						<div>
-							<md-icon md-font-icon="material-icons" >assignment_turned_in</md-icon> Status
+							<div>
+								<md-icon md-font-icon="material-icons" >card_membership</md-icon> PAN
+							</div>
+							<div  class="detail-value">
+								 {{pf.pan}}
+							</div>
+
 						</div>
-						<div  class="detail-value">
-						 {{pfDetails.status}}
+						<div>
+							<div>
+								<md-icon md-font-icon="material-icons" >chrome_reader_mode</md-icon>  Aadhar 
+							</div>
+							<div  class="detail-value">
+								{{pf.aadhar}}
+							</div>
+
+						</div>
+						<div>
+							<div>
+								<md-icon md-font-icon="material-icons" >account_balance</md-icon> Bank
+							</div>
+							<div  class="detail-value">
+								 {{pf.bank}}
+							</div>
+
+						</div>
+						<div>
+							<div><md-icon md-font-icon="material-icons" >account_balance_wallet</md-icon> Balance </div>
+							<div  class="detail-value">
+								{{pf.balance}}
+							</div>
+
+						</div>
+						<div>
+							<div><md-icon md-font-icon="material-icons" >credit_card</md-icon> Last credit </div>
+							<div  class="detail-value">{{pf.lastCredit}}</div>
+
+						</div>
+						<div>
+							<div>
+								<md-icon md-font-icon="material-icons" >assignment_turned_in</md-icon> Status
+							</div>
+							<div  class="detail-value">
+							 {{pf.status}}
+							</div>
 						</div>
 					</div>
 				</div>
